@@ -22,15 +22,18 @@ We propose a garment generation model, which can support most gar-ment topologie
 TBD
 
 ### Dataset
-- We publish a garment dataset [here](https://drive.google.com/drive/folders/1GR9cut1Ip7T3R-nYnuWPJUSarX8MT_xY?usp=sharing).
+- We publish a garment dataset [here](https://drive.google.com/drive/folders/1GR9cut1Ip7T3R-nYnuWPJUSarX8MT_xY?usp=sharing) (122G).
 
 ### Data preparation
 TBD
 
-### Training
+### 3D and 2D garment representation transfer
+
+### 2D garment representation generation
+#### Training
 TBD
 
-### Testing
+#### Testing
 TBD
 
 
