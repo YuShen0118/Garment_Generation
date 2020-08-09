@@ -19,11 +19,13 @@ class AlignedDataset(BaseDataset):
         self.dir_A = os.path.join(opt.dataroot, opt.phase + dir_A)
         self.A_paths = sorted(make_dataset(self.dir_A))
 
+        '''
         if self.opt.isTrain:
             print("Reduced length!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             #print(self.A_paths[40000])
             #self.A_paths = self.A_paths[0:40000]
             print(len(self.A_paths))
+        '''
 
         ### input B (displacement_map)
         if True:#self.opt.isTrain or self.opt.use_encoded_image:
