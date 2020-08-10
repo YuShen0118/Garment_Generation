@@ -25,6 +25,11 @@ C++: OpenCV
 ### Dataset
 - We publish a garment dataset [here](https://drive.google.com/drive/folders/1GR9cut1Ip7T3R-nYnuWPJUSarX8MT_xY?usp=sharing) (122G).
 
+Folder name format:
+C[ID1]M[ID2]H[ID3], where ID1 represents 3-digit cloth id, ID2 represents 2-digit material id, ID3 represents 2-digit human body sequence id, e.g., C050M00H03.
+
+In each folder, [ID4]\_00.obj is garment model file, where ID4 represents garment model id in this sequence, while obs[ID5]\_00.obj is human model file, where ID5 represents human model id in this sequence. Also, gt.pkl contains the original human pose and shape information, and we provide python script to extract them in the next step.
+
 ### Data preparation
 #### Extract human pose and shape from pkl file
 ```bash
