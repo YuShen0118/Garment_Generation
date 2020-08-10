@@ -108,4 +108,4 @@ If you find this useful for your research, please use the following.
 ```
 
 ## Acknowledgments
-This code borrows heavily from [NVIDIA/pix2pixHD](https://github.com/NVIDIA/pix2pixHD).
+This code borrows heavily from [NVIDIA/pix2pixHD](https://github.com/NVIDIA/pix2pixHD). Also, [Junbang Liang](http://cs.umd.edu/~liangjb) made great contribution in this project.
