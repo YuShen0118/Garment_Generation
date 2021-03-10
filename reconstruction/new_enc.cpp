@@ -10,8 +10,9 @@
 #include <fstream>
 #include <queue>
 #include <cmath>
-#include "util.hpp"
 #include <opencv2/opencv.hpp>
+#include <sys/stat.h>
+#include "util.hpp"
 using namespace std;
 
 Mesh cloth, body, cloth1;
@@ -679,6 +680,9 @@ void saveLegalMap(string path="", int idx = 0)
         }
     }
 
+	int status = mkdir((path+"/test_legal_map_image_big").c_str(), 0777);
+	status = mkdir((path+"/test_legal_map_big").c_str(), 0777);
+
     char filename[256];
     sprintf(filename, "/test_legal_map_image_big/legal_map_%06d.jpg", idx);
     cv::imwrite(path + filename, legalMap*255);
@@ -737,6 +741,9 @@ void saveData(string path = "", int idx = 0, int siz = maxn)
         }
     }
 
+	int status = mkdir((path+"/test_displacement_map_big").c_str(), 0777);
+	status = mkdir((path+"/reconstruct_dp_map").c_str(), 0777);
+
 //     double minVal, maxVal;
 //     cv::minMaxLoc(DispMap, &minVal, &maxVal);
 
@@ -748,6 +755,7 @@ void saveData(string path = "", int idx = 0, int siz = maxn)
 
     sprintf(filename, "/reconstruct_dp_map/dp_map_%06d.dat", idx);
     saveBinaryFile(path + filename, DpMap);
+
 
 //     sprintf(filename, "/reconstruct_dp_map/dp_map_%06d.jpg", idx);
 //     cv::imwrite(path + filename, DpMap*255);
@@ -967,9 +975,11 @@ int getHfromCMU(const string& path, int c, int m, int u)
 	return h;
 }
 
-void singleObjWithId(int c, int m, int u)
+void singleObjWithId(int c, int m, int u, string path, string outPath)
 {
-    string path = "/home/yushen/workspace/sim_data_new/";
+	int status = mkdir(outPath.c_str(), 0777);
+
+    //string path = "/home/yushen/workspace/sim_data_new/";
     char filename[256];
 
 	int idx = c*10*250 + m*250 + u;
@@ -999,7 +1009,7 @@ void singleObjWithId(int c, int m, int u)
 	sprintf(filename, "C%03dM%02dH%02d/obs%04d_00.obj", c, m, h, u);
 	string bodyFileName = path + filename;
 
-	string outPath = path + "cloth105/";
+	//string outPath = path + "cloth105/";
     dealWithOneCase(objFileName, bodyFileName, outPath, idx);
 
 	printf("idx %d end\n", idx);
@@ -1520,7 +1530,7 @@ int main(int argc, char **argv) {
 		
 		if (mode == 0)
 		{
-			singleObjWithId(std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]));
+			singleObjWithId(std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]), argv[5], argv[6]);
 		}
 		else if (mode == 1)
 		{

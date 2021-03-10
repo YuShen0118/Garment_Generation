@@ -21,6 +21,7 @@ We propose a garment generation model, which can support most gar-ment topologie
 ### Installation
 Python: dominate, geomloss, OpenCV, PyTorch
 C++: OpenCV
+CMake
 
 ### Dataset
 - We publish a garment dataset [here](https://drive.google.com/drive/folders/1GR9cut1Ip7T3R-nYnuWPJUSarX8MT_xY?usp=sharing) (122G).
@@ -42,14 +43,23 @@ python extract_pose_shape.py all_data/garment_dataset all_data/train_data
 ```
 
 #### Prepare displacement_map, dp_map, and legal_map 
+Compile reconstruction/new_enc.cpp with provided CMakeList.txt
+
 ```bash
-bash ./scripts/batch_process_multithread.sh [dataset path] [output path]
+cd reconstruction
+mkdir build
+cd build
+cmake ../
+make
 ```
 
-Sample:
+You will get an executable file "ProcessMesh". Then run bash file
+
 ```bash
-bash ./scripts/batch_process_multithread.sh all_data/garment_dataset all_data/train_data
+cd ../../script/batch_multithread.sh
+batch batch_multithread.sh
 ```
+Remember to modify the folder path in the bash file.
 
 
 ### 2D garment representation generation
