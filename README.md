@@ -31,6 +31,11 @@ C[ID1]M[ID2]H[ID3], where ID1 represents 3-digit cloth id, ID2 represents 2-digi
 
 In each folder, [ID4]\_00.obj is garment model file, where ID4 represents garment model id in this sequence, while obs[ID5]\_00.obj is human model file, where ID5 represents human model id in this sequence. Also, gt.pkl contains the original human pose and shape information, and we provide python script to extract them in the next step.
 
+The raw dataset (including sewing patterns) we used came from multiple sources, and some of them are public available:
+- Dataset from the Research Group led by Prof. Huamin Wang (Ohio State University): [here](http://web.cse.ohio-state.edu/~wang.3602/Wang-2018-RFS/Wang-2018-RFS.zip)
+- Dataset from the Research Group led by Prof. Alla Sheffer (University of British Columbia): [here](http://www.inrialpes.fr/sed/people/boissieux/GARMENT_TRANSFER/), [here](http://www.cs.ubc.ca/labs/imager/tr/2018/FoldSketch/)
+
+
 ### Data preparation
 #### Extract human pose and shape from pkl file
 ```bash
@@ -118,4 +123,6 @@ If you find this useful for your research, please use the following.
 ```
 
 ## Acknowledgments
+We would like to thank the Research Groups led by [Prof. Eitan Grinspun (Columbia University)](http://www.cs.columbia.edu/cg/), [Prof. Alla Sheffer (University of British Columbia)](https://www.cs.ubc.ca/~sheffa/), and [Prof. Huamin Wang (Ohio State University)](http://web.cse.ohio-state.edu/~wang.3602/) for sharing their design patterns datasets for the benchmarking and demonstration in this paper.
+
 This code borrows heavily from [NVIDIA/pix2pixHD](https://github.com/NVIDIA/pix2pixHD). Also, [Junbang Liang](http://cs.umd.edu/~liangjb) made great contribution in this project.
